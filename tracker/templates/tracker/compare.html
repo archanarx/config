@@ -1,0 +1,23 @@
+<h2>Compare Water Intake</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <label>From Date:</label>
+    <input type="date" name="date1" required>
+
+    <label>To Date:</label>
+    <input type="date" name="date2" required>
+
+    <button type="submit">Compare</button>
+</form>
+
+{% if result != None %}
+    <p>Difference in water intake: <b>{{ result }} ml</b></p>
+{% endif %}
+
+{% for msg in messages %}
+<p style="color:red">{{ msg }}</p>
+{% endfor %}
+
+<br>
+<a href="{% url 'home' %}">Home</a>

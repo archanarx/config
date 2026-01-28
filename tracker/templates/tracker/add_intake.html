@@ -1,0 +1,13 @@
+<h2>Add Water Intake</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="number" name="quantity" placeholder="Water in ml" required>
+    <button type="submit">Add</button>
+</form>
+
+{% for msg in messages %}
+<p style="color:red">{{ msg }}</p>
+{% endfor %}
+
+<a href="{% url 'home' %}">Back to Home</a>

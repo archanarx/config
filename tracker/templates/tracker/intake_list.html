@@ -1,0 +1,43 @@
+<h2>Your Daily Water Intake</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Quantity (ml)</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for intake in page_obj %}
+    <tr>
+        <td>{{ intake.date }}</td>
+        <td>{{ intake.time }}</td>
+        <td>{{ intake.quantity }}</td>
+        <td>
+            <a href="{% url 'edit' intake.id %}">Edit</a> |
+            <a href="{% url 'delete' intake.id %}">Delete</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="4">No records found</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+
+{% if page_obj.has_previous %}
+<a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% endif %}
+
+<span> Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} </span>
+
+{% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number }}">Next</a>
+{% endif %}
+
+<br><br>
+
+<a href="{% url 'add' %}">Add Water Intake</a> |
+<a href="{% url 'home' %}">Home</a>
