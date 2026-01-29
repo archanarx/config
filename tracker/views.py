@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -5,7 +6,9 @@ from django.contrib import messages
 from django.http import HttpResponse
 
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.cache import never_cache
 
+@never_cache
 @login_required
 def home(request):
     return render(request, 'tracker/home.html')
@@ -48,6 +51,7 @@ def logout_view(request):
 from .models import WaterIntake
 from django.db import IntegrityError
 
+@never_cache
 @login_required
 def add_intake(request):
     if request.method == 'POST':
@@ -67,6 +71,7 @@ def add_intake(request):
 
 from django.core.paginator import Paginator
 
+@never_cache
 @login_required
 def intake_list(request):
     intakes = WaterIntake.objects.filter(user=request.user).order_by('-date')
@@ -80,6 +85,7 @@ def intake_list(request):
 
 from django.shortcuts import get_object_or_404
 
+@never_cache
 @login_required
 def edit_intake(request, id):
     intake = get_object_or_404(WaterIntake, id=id, user=request.user)
@@ -92,6 +98,7 @@ def edit_intake(request, id):
     return render(request, 'tracker/edit_intake.html', {'intake': intake})
 
 
+@never_cache
 @login_required
 def delete_intake(request, id):
     intake = get_object_or_404(WaterIntake, id=id, user=request.user)
@@ -99,6 +106,7 @@ def delete_intake(request, id):
     return redirect('list')
 
 
+@never_cache
 @login_required
 def compare_intake(request):
     result = None
