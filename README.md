@@ -1,4 +1,4 @@
-# 💧 Daily Water Intake Tracker (Django)
+#  Daily Water Intake Tracker (Django)
 
 A Django web application that allows users to track their daily water intake with authentication and MySQL database support.
 
