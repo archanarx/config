@@ -3,7 +3,7 @@
 A Django web application that allows users to track their daily water intake with authentication and MySQL database support.
 
 ---
-🚀 Features :
+ Features :
 
 * User Signup, Login & Logout
 
@@ -18,7 +18,7 @@ A Django web application that allows users to track their daily water intake wit
 * Compare water intake between two dates
 
 ---
-🛠️ Tech Stack :
+ Tech Stack :
 
 * Backend: Django
 
@@ -27,7 +27,7 @@ A Django web application that allows users to track their daily water intake wit
 * Frontend: HTML (Django Templates)
 
 ---
-🎯 Learning Highlights :
+ Learning Highlights :
 
 * Django authentication
 
@@ -39,6 +39,4 @@ A Django web application that allows users to track their daily water intake wit
 
 * Date-based calculations
 ---
-👩‍💻 Author
 
-Archana R
